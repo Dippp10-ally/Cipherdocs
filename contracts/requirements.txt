@@ -1,0 +1,5 @@
+algosdk
+python-dotenv
+pre-commit
+black
+isort 
