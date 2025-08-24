@@ -12,6 +12,7 @@ import DashboardPage from './pages/DashboardPage';
 import SettingsPage from './pages/SettingsPage';
 import NotFoundPage from './pages/NotFoundPage';
 import AboutUsPage from './pages/AboutUsPage'; // Import the new page
+import RuralConsentPage from './pages/RuralConsentPage'; // UPI-style demo
 
 // Components
 import Layout from './components/Layout';
@@ -24,6 +25,7 @@ const App: React.FC = () => {
           <Layout>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/rural" element={<RuralConsentPage />} />
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/consents" element={<ConsentsPage />} />
               <Route path="/settings" element={<SettingsPage />} />
