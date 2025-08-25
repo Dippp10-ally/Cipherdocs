@@ -1,4 +1,4 @@
-# ConsentChain - Algorand-based Consent Management Platform
+# CipherDocs - Algorand-based Consent Management Platform
 
 ## Overview
 ConsentChain is a decentralized consent management platform built on Algorand blockchain. It enables secure, transparent, and efficient management of data sharing consents between individuals and institutions.
@@ -320,21 +320,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - React Community
 - TailwindCSS Team
 
-## Telegram Bot Integration
 
-ConsentChain now offers a seamless integration with Telegram! You can interact with the platform directly from your favorite messaging app using our official bot:
 
-- **Bot Username:** [@consent_bot](https://t.me/consent_bot)
-- **Features:**
-  - Manage your data consents
-  - Receive real-time notifications
-  - Approve or reject requests
-  - And more—all from Telegram!
 
-To get started, visit the new **Telegram Bot** page in the app navigation or [click here](https://t.me/consent_bot).
-
-## FAQ
-
-### How do I use the ConsentChain Telegram bot?
-
-Visit the new **Telegram Bot** page in the app or go to [@consent_bot](https://t.me/consent_bot) on Telegram. Follow the instructions to link your account and manage your data consents directly from Telegram.
