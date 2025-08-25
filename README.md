@@ -60,10 +60,7 @@ CipherDocs is a decentralized consent management platform built on Algorand bloc
   - Activity logs
   - Analytics data
 
-- **Telegram Bot Service** (`telegramBotService.js`)
-  - Notification system
-  - Consent alerts
-  - Status updates
+
 
 ## 🛠️ Technical Architecture
 
@@ -161,7 +158,7 @@ server/
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/YashDiwan-16/algorand.git
+    git clone https://github.com/KuruKshetra-Team-XLR8/Cipherdocs
     cd algorand
     ```
 
