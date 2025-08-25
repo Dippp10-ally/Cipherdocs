@@ -1,36 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import HeroAnimation from './animations/HeroAnimation';
-import WalletConnect from './WalletConnect';
-import { useWallet } from '../context/WalletContext';
-import { 
-  ClipboardDocumentListIcon, 
-  ChartBarIcon, 
-  DocumentCheckIcon,
-  QrCodeIcon 
-} from '@heroicons/react/24/outline';
 
 function Hero() {
-  const { isConnectedToPeraWallet } = useWallet();
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.5 }
-  };
-
-  const buttonVariants = {
-    initial: { scale: 1 },
-    hover: { 
-      scale: 1.05,
-      y: -5,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    },
-    tap: { scale: 0.95 }
   };
 
   const buttonContainerVariants = {
@@ -95,100 +71,30 @@ function Hero() {
                 animate="animate"
                 variants={buttonContainerVariants}
               >
-                {!isConnectedToPeraWallet ? (
-                  <>
-                    <motion.div
-                      className="rounded-xl shadow-elegant"
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <WalletConnect variant="hero" />
-                    </motion.div>
-                    <motion.div
-                      className="mt-4 sm:mt-0 sm:ml-6"
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <motion.a
-                        href="#"
-                        className="btn-outline w-full flex items-center justify-center px-10 py-4 text-lg font-medium md:py-5 md:text-xl md:px-12"
-                        animate={{
-                          borderColor: [
-                            'rgba(255, 255, 255, 0.3)',
-                            'rgba(255, 255, 255, 0.6)',
-                            'rgba(255, 255, 255, 0.3)',
-                          ],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          repeatType: 'reverse',
-                        }}
-                      >
-                        Watch Demo
-                      </motion.a>
-                    </motion.div>
-                  </>
-                ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-5xl">
-                    <motion.div
-                      variants={buttonVariants}
-                      initial="initial"
-                      whileHover="hover"
-                      whileTap="tap"
-                    >
-                      <Link
-                        to="/request-consent"
-                        className="w-full flex items-center justify-center px-8 py-5 border border-transparent text-lg font-medium rounded-2xl text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 shadow-glow hover:shadow-glow-lg transition-all duration-300 border border-primary-400/30"
-                      >
-                        <ClipboardDocumentListIcon className="h-7 w-7 mr-3" />
-                        Request Consent
-                      </Link>
-                    </motion.div>
-                    <motion.div
-                      variants={buttonVariants}
-                      initial="initial"
-                      whileHover="hover"
-                      whileTap="tap"
-                    >
-                      <Link
-                        to="/grant-consent"
-                        className="w-full flex items-center justify-center px-8 py-5 border border-transparent text-lg font-medium rounded-2xl text-white bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 shadow-glow hover:shadow-glow-lg transition-all duration-300 border border-secondary-400/30"
-                      >
-                        <DocumentCheckIcon className="h-7 w-7 mr-3" />
-                        Grant Consent
-                      </Link>
-                    </motion.div>
-                    <motion.div
-                      variants={buttonVariants}
-                      initial="initial"
-                      whileHover="hover"
-                      whileTap="tap"
-                    >
-                      <Link
-                        to="/scan-qr"
-                        className="w-full flex items-center justify-center px-8 py-5 border border-transparent text-lg font-medium rounded-2xl text-white bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 shadow-glow hover:shadow-glow-lg transition-all duration-300 border border-accent-400/30"
-                      >
-                        <QrCodeIcon className="h-7 w-7 mr-3" />
-                        Scan QR
-                      </Link>
-                    </motion.div>
-                    <motion.div
-                      variants={buttonVariants}
-                      initial="initial"
-                      whileHover="hover"
-                      whileTap="tap"
-                    >
-                      <Link
-                        to="/dashboard"
-                        className="w-full flex items-center justify-center px-8 py-5 border border-transparent text-lg font-medium rounded-2xl text-white bg-gradient-to-r from-premium-600 to-premium-700 hover:from-premium-700 hover:to-premium-800 shadow-glow hover:shadow-glow-lg transition-all duration-300 border border-premium-400/30"
-                      >
-                        <ChartBarIcon className="h-7 w-7 mr-3" />
-                        Dashboard
-                      </Link>
-                    </motion.div>
-                  </div>
-                )}
+                <motion.div
+                  className="mt-4 sm:mt-0"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <motion.a
+                    href="#"
+                    className="btn-outline w-full flex items-center justify-center px-10 py-4 text-lg font-medium md:py-5 md:text-xl md:px-12"
+                    animate={{
+                      borderColor: [
+                        'rgba(255, 255, 255, 0.3)',
+                        'rgba(255, 255, 255, 0.6)',
+                        'rgba(255, 255, 255, 0.3)',
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatType: 'reverse',
+                    }}
+                  >
+                    Watch Demo
+                  </motion.a>
+                </motion.div>
               </motion.div>
             </motion.div>
           </main>

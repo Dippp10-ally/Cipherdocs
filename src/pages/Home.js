@@ -1,6 +1,6 @@
 {/* Hero Section */}
 <section className="relative min-h-screen bg-gray-900">
-  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50 opacity-30 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
@@ -47,7 +47,7 @@
 
 {/* What is ConsentChain Section */}
 <section className="py-16 bg-gray-900 relative">
-  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50 opacity-30 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
@@ -104,7 +104,7 @@
 
 {/* Features Section */}
 <section className="py-16 bg-gray-900 relative">
-  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50 opacity-30 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
@@ -151,7 +151,7 @@
 
 {/* Who Can Use ConsentChain Section */}
 <section className="py-16 bg-gray-900 relative">
-  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50 opacity-30 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
@@ -198,7 +198,7 @@
 
 {/* Our Tech Stack Section */}
 <section className="py-16 bg-gray-900 relative">
-  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50 opacity-30 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
@@ -255,7 +255,7 @@
 
 {/* Consent Record Example Section */}
 <section className="py-16 bg-gray-900 relative">
-  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50 opacity-30 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
@@ -301,7 +301,7 @@
 
 {/* Use Cases Section */}
 <section className="py-16 bg-gray-900 relative">
-  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50 opacity-30 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
@@ -348,7 +348,7 @@
 
 {/* CTA Section */}
 <section className="py-16 bg-gray-900 relative">
-  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-blue-50 opacity-30 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">

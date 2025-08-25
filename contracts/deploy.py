@@ -26,11 +26,20 @@ algod_token = os.environ.get("ALGOD_TOKEN", "")
 client = algod.AlgodClient(algod_token, algod_address)
 
 def load_teal(filename):
-    """Load a TEAL program from a file."""
     logger.info(f"Loading TEAL from {filename}...")
-    path = pathlib.Path(filename)
+
+    base_path = pathlib.Path(__file__).parent.parent  # go up two levels from deploy.py (contracts -> yash)
+    path = base_path / filename
+
+    logger.info(f"Resolved TEAL file path: {path}")
+
+    if not path.exists():
+        logger.error(f"TEAL file not found at {path}")
+        raise FileNotFoundError(f"TEAL file not found at {path}")
+
     with path.open('r') as f:
         return f.read()
+
 
 def get_account_from_mnemonic(mnemonic_str):
     """Get account address and private key from a mnemonic string."""

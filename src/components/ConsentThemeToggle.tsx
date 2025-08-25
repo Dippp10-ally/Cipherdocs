@@ -11,7 +11,7 @@ const ConsentThemeToggle: React.FC<ConsentThemeToggleProps> = ({ dark, onToggle 
     onClick={onToggle}
     type="button"
   >
-    {dark ? '🌙 Dark' : '☀️ Light'}
+    {dark ? 'Dark' : 'Light'}
   </button>
 );
 

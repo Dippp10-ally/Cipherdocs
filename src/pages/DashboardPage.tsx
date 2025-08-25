@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useWallet } from '../context/WalletContext';
+import { useWallet } from '../context/WalletContext.js';
 import UserProfileCard from '../components/UserProfileCard';
 import RecentActivity from '../components/RecentActivity';
 import StatsCard from '../components/StatsCard';

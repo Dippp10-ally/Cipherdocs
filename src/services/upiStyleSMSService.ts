@@ -46,7 +46,7 @@ class UPIStyleSMSService {
     phoneNumber: string,
     request: ConsentRequest
   ): Promise<boolean> {
-    const message = `✅ ConsentChain: Access APPROVED for ${request.documentName} to ${request.requesterName} for ${request.duration} mins. Access Code: ${request.accessCode}. Do not share this code.`;
+    const message = `CipherDocs: Access APPROVED for ${request.documentName} to ${request.requesterName} for ${request.duration} mins. Access Code: ${request.accessCode}. Do not share this code.`;
     
     return this.sendSMS({
       to: phoneNumber,
@@ -63,7 +63,7 @@ class UPIStyleSMSService {
     documentName: string,
     requesterName: string
   ): Promise<boolean> {
-    const message = `🔒 ConsentChain: Access to ${documentName} for ${requesterName} has EXPIRED. Your document is now secure.`;
+    const message = `CipherDocs: Access to ${documentName} for ${requesterName} has EXPIRED. Your document is now secure.`;
     
     return this.sendSMS({
       to: phoneNumber,
@@ -76,7 +76,7 @@ class UPIStyleSMSService {
    * Send PIN setup confirmation
    */
   async sendPinSetupConfirmation(phoneNumber: string): Promise<boolean> {
-    const message = `🔐 ConsentChain: Your security PIN has been set successfully. You can now approve document access requests easily. Keep your PIN secure.`;
+    const message = `CipherDocs: Your security PIN has been set successfully. You can now approve document access requests easily. Keep your PIN secure.`;
     
     return this.sendSMS({
       to: phoneNumber,
@@ -90,7 +90,7 @@ class UPIStyleSMSService {
    */
   async sendPinResetOTP(phoneNumber: string): Promise<string> {
     const otp = this.generateOTP();
-    const message = `🔑 ConsentChain PIN Reset: Your OTP is ${otp}. Valid for 5 minutes. Do not share with anyone.`;
+    const message = `CipherDocs PIN Reset: Your OTP is ${otp}. Valid for 5 minutes. Do not share with anyone.`;
     
     await this.sendSMS({
       to: phoneNumber,
@@ -105,13 +105,13 @@ class UPIStyleSMSService {
    * Format consent request message in Hindi + English (like UPI)
    */
   private formatConsentRequestMessage(request: ConsentRequest): string {
-    return `📋 ConsentChain: ${request.requesterName} wants access to your ${request.documentName} for ${request.duration} minutes. 
+    return `CipherDocs: ${request.requesterName} wants access to your ${request.documentName} for ${request.duration} minutes. 
     
 Reply with:
-✅ APPROVE to allow
-❌ REJECT to deny
+APPROVE to allow
+REJECT to deny
 
-Or open ConsentChain app to respond.
+Or open CipherDocs app to respond.
 
 Do not share this message.`;
   }
@@ -123,7 +123,7 @@ Do not share this message.`;
     try {
       // For demo purposes, we'll just log the SMS
       // In production, integrate with SMS service like Twilio, MSG91, etc.
-      console.log('📱 SMS Notification:', {
+      console.log('SMS Notification:', {
         to: `+91${notification.to}`,
         message: notification.message,
         type: notification.type,

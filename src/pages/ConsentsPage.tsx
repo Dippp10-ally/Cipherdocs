@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ConsentList from '../components/ConsentList';
 import ConsentRequestForm from '../components/ConsentRequestForm';
 import Card from '../components/Card';
-import { useWallet } from '../context/WalletContext';
+import { useWallet } from '../context/WalletContext.js';
 import WalletConnectButton from '../components/WalletConnectButton';
 import Spinner from '../components/Spinner';
 import Notification from '../components/Notification';

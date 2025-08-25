@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const consentRequestSchema = new mongoose.Schema({
   requestId: {
@@ -56,4 +56,4 @@ consentRequestSchema.index({ recipient: 1, status: 1 });
 
 const ConsentRequest = mongoose.model('ConsentRequest', consentRequestSchema);
 
-export default ConsentRequest; 
+module.exports = ConsentRequest; 

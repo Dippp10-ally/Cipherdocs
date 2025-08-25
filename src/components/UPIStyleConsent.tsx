@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+interface Document {
+  id: string;
+  name: string;
+  type: string;
+  icon: string;
+  description: string;
+  sensitive: boolean;
+}
+
 interface UPIStyleConsentProps {
   onConsent: (approved: boolean) => void;
-  documentName: string;
+  documents: Document[];
   requesterName: string;
   duration: number; // in minutes
   phoneNumber?: string;
@@ -11,7 +20,7 @@ interface UPIStyleConsentProps {
 
 const UPIStyleConsent: React.FC<UPIStyleConsentProps> = ({
   onConsent,
-  documentName,
+  documents,
   requesterName,
   duration,
   phoneNumber
@@ -69,7 +78,7 @@ const UPIStyleConsent: React.FC<UPIStyleConsentProps> = ({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 className="text-xl font-semibold text-green-800 mb-2">मंजूरी दी गई! / Approved!</h3>
+          <h3 className="text-xl font-semibold text-green-800 mb-2">Approved!</h3>
           <p className="text-green-600">Access granted for {duration} minutes</p>
         </div>
       </motion.div>
@@ -89,7 +98,7 @@ const UPIStyleConsent: React.FC<UPIStyleConsentProps> = ({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </div>
-          <h3 className="text-xl font-semibold text-red-800 mb-2">गलत पिन / Wrong PIN</h3>
+          <h3 className="text-xl font-semibold text-red-800 mb-2">Wrong PIN</h3>
           <p className="text-red-600">Please try again</p>
         </div>
       </motion.div>
@@ -104,7 +113,7 @@ const UPIStyleConsent: React.FC<UPIStyleConsentProps> = ({
         className="max-w-md mx-auto bg-white p-6 rounded-2xl shadow-lg border"
       >
         <div className="text-center mb-6">
-          <h3 className="text-xl font-semibold mb-2">अपना पिन डालें / Enter Your PIN</h3>
+          <h3 className="text-xl font-semibold mb-2">Enter Your PIN</h3>
           <p className="text-gray-600">Access expires in: {countdown}s</p>
         </div>
 
@@ -184,17 +193,27 @@ const UPIStyleConsent: React.FC<UPIStyleConsentProps> = ({
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold mb-2">दस्तावेज़ की अनुमति / Document Access</h3>
+        <h3 className="text-xl font-semibold mb-2">Document Access</h3>
         {phoneNumber && (
           <p className="text-sm text-gray-500 mb-2">Request sent to: +91-****-**{phoneNumber.slice(-2)}</p>
         )}
       </div>
 
       <div className="bg-gray-50 p-4 rounded-lg mb-6">
-        <div className="space-y-2">
-          <div className="flex justify-between">
-            <span className="text-gray-600">Document:</span>
-            <span className="font-semibold">{documentName}</span>
+        <div className="space-y-3">
+          <div>
+            <span className="text-gray-600 text-sm">Documents ({documents.length}):</span>
+            <div className="mt-2 space-y-1">
+              {documents.map((doc) => (
+                <div key={doc.id} className="flex items-center space-x-2">
+                  <span className="text-lg">{doc.icon}</span>
+                  <span className="font-medium">{doc.name}</span>
+                  {doc.sensitive && (
+                    <span className="text-xs text-red-500 bg-red-50 px-2 py-1 rounded">🔒 Sensitive</span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-600">Requester:</span>
@@ -212,13 +231,13 @@ const UPIStyleConsent: React.FC<UPIStyleConsentProps> = ({
           onClick={handleApprove}
           className="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors"
         >
-          मंजूरी दें / Approve
+          Approve
         </button>
         <button
           onClick={handleReject}
           className="w-full bg-red-500 hover:bg-red-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors"
         >
-          मना करें / Reject
+          Reject
         </button>
       </div>
 

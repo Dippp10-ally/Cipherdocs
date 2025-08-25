@@ -4,62 +4,72 @@ from algosdk.transaction import ApplicationCreateTxn, ApplicationCallTxn, OnComp
 import base64
 import json
 import time
+from pathlib import Path
 
 # Connect to Algorand testnet
-algod_address = "https://testnet-api.algonode.cloud"
-algod_token = ""  # No token needed for public testnet
-client = algod.AlgodClient(algod_token, algod_address)
+ALGOD_ADDRESS = "https://testnet-api.algonode.cloud"
+ALGOD_TOKEN = ""  # No token needed for public testnet
+client = algod.AlgodClient(ALGOD_TOKEN, ALGOD_ADDRESS)
 
-# Load the compiled TEAL program
+# Load TEAL source code
 def load_teal(filename):
-    with open(filename, 'r') as f:
+    base_path = Path(__file__).parent.parent / "algorand"
+    path = base_path / filename
+    with path.open('r') as f:
         return f.read()
 
-# Create an account from the mnemonic
+
+# Wait for transaction confirmation
+def wait_for_confirmation(client, txid):
+    last_round = client.status().get('last-round')
+    while True:
+        tx_info = client.pending_transaction_info(txid)
+        if tx_info.get('confirmed-round', 0) > 0:
+            return tx_info
+        last_round += 1
+        client.status_after_block(last_round)
+
+# Create account from mnemonic
 def get_account_from_mnemonic(mnemonic_str):
     private_key = mnemonic.to_private_key(mnemonic_str)
     address = account.address_from_private_key(private_key)
     return address, private_key
 
-# Deploy the contract
+# Deploy the smart contract
 def deploy_contract(creator_address, creator_private_key):
-    # Read the approval and clear programs
-    approval_program = load_teal("consent_approval.teal")
-    clear_program = load_teal("consent_clear.teal")
+    approval_source = load_teal("consent_approval.teal")
+    clear_source = load_teal("consent_clear.teal")
 
-    # Get suggested parameters
+    # Compile programs
+    compiled_approval = client.compile(approval_source)['result']
+    compiled_clear = client.compile(clear_source)['result']
+
     params = client.suggested_params()
 
-    # Create unsigned transaction
     txn = ApplicationCreateTxn(
         sender=creator_address,
         sp=params,
         on_complete=OnComplete.NoOpOC,
-        approval_program=base64.b64decode(approval_program),
-        clear_program=base64.b64decode(clear_program),
+        approval_program=base64.b64decode(compiled_approval),
+        clear_program=base64.b64decode(compiled_clear),
         global_schema=StateSchema(num_uints=8, num_byte_slices=8),
         local_schema=StateSchema(num_uints=0, num_byte_slices=0)
     )
 
-    # Sign transaction
     signed_txn = txn.sign(creator_private_key)
-
-    # Submit transaction
     tx_id = client.send_transaction(signed_txn)
-    print(f"Deployed contract with transaction ID: {tx_id}")
+    print(f"Deploy transaction sent with txID: {tx_id}")
 
-    # Wait for confirmation
-    transaction_response = client.pending_transaction_info(tx_id)
-    app_id = transaction_response['application-index']
-    print(f"Contract deployed with app ID: {app_id}")
+    confirmed_txn = wait_for_confirmation(client, tx_id)
+    app_id = confirmed_txn['application-index']
+    print(f"Smart contract deployed with app ID: {app_id}")
     return app_id
 
-# Test the contract
+# Test contract functions
 def test_contract(app_id, creator_address, creator_private_key, recipient_address, recipient_private_key):
-    # Get suggested parameters
     params = client.suggested_params()
 
-    # Test request_consent
+    # 1. request_consent
     request_txn = ApplicationCallTxn(
         sender=creator_address,
         sp=params,
@@ -74,55 +84,53 @@ def test_contract(app_id, creator_address, creator_private_key, recipient_addres
         ]
     )
     signed_request = request_txn.sign(creator_private_key)
-    request_tx_id = client.send_transaction(signed_request)
-    print(f"Request consent transaction ID: {request_tx_id}")
-    client.pending_transaction_info(request_tx_id)
+    request_txid = client.send_transaction(signed_request)
+    print(f"request_consent tx sent: {request_txid}")
+    wait_for_confirmation(client, request_txid)
 
-    # Test grant_consent
+    # 2. grant_consent
+    expiry_timestamp = str(int(time.time()) + 30 * 24 * 60 * 60).encode()  # 30 days from now
+    permissions = json.dumps({"view": True, "download": False}).encode()
+
     grant_txn = ApplicationCallTxn(
         sender=recipient_address,
-        sp=params,
+        sp=client.suggested_params(),
         index=app_id,
         on_complete=OnComplete.NoOpOC,
-        app_args=[
-            b"grant_consent",
-            str(int(time.time()) + 30*24*60*60).encode(),  # 30 days expiry
-            json.dumps({"view": True, "download": False}).encode()
-        ]
+        app_args=[b"grant_consent", expiry_timestamp, permissions]
     )
     signed_grant = grant_txn.sign(recipient_private_key)
-    grant_tx_id = client.send_transaction(signed_grant)
-    print(f"Grant consent transaction ID: {grant_tx_id}")
-    client.pending_transaction_info(grant_tx_id)
+    grant_txid = client.send_transaction(signed_grant)
+    print(f"grant_consent tx sent: {grant_txid}")
+    wait_for_confirmation(client, grant_txid)
 
-    # Test view_document
+    # 3. view_document
     view_txn = ApplicationCallTxn(
         sender=creator_address,
-        sp=params,
+        sp=client.suggested_params(),
         index=app_id,
         on_complete=OnComplete.NoOpOC,
         app_args=[b"view_document"]
     )
     signed_view = view_txn.sign(creator_private_key)
-    view_tx_id = client.send_transaction(signed_view)
-    print(f"View document transaction ID: {view_tx_id}")
-    client.pending_transaction_info(view_tx_id)
+    view_txid = client.send_transaction(signed_view)
+    print(f"view_document tx sent: {view_txid}")
+    wait_for_confirmation(client, view_txid)
 
-    # Test revoke_consent
+    # 4. revoke_consent
     revoke_txn = ApplicationCallTxn(
         sender=recipient_address,
-        sp=params,
+        sp=client.suggested_params(),
         index=app_id,
         on_complete=OnComplete.NoOpOC,
         app_args=[b"revoke_consent"]
     )
     signed_revoke = revoke_txn.sign(recipient_private_key)
-    revoke_tx_id = client.send_transaction(signed_revoke)
-    print(f"Revoke consent transaction ID: {revoke_tx_id}")
-    client.pending_transaction_info(revoke_tx_id)
+    revoke_txid = client.send_transaction(signed_revoke)
+    print(f"revoke_consent tx sent: {revoke_txid}")
+    wait_for_confirmation(client, revoke_txid)
 
 def main():
-    # Create accounts from mnemonics
     creator_mnemonic = "clean lend scan box absorb cancel legal wood frost dynamic frequent uphold cluster lake sibling luggage flat unfair runway pole physical receive foam above hat"
     recipient_mnemonic = "alter green actual grab spoon okay faith repeat smile report easily retire plate enact vacuum spin bachelor rate where service settle nice north above soul"
 
@@ -132,11 +140,8 @@ def main():
     print(f"Creator address: {creator_address}")
     print(f"Recipient address: {recipient_address}")
 
-    # Deploy contract
     app_id = deploy_contract(creator_address, creator_private_key)
-
-    # Test contract functionality
     test_contract(app_id, creator_address, creator_private_key, recipient_address, recipient_private_key)
 
 if __name__ == "__main__":
-    main() 
+    main()
