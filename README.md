@@ -1,7 +1,7 @@
 # CipherDocs - Algorand-based Consent Management Platform
 
 ## Overview
-ConsentChain is a decentralized consent management platform built on Algorand blockchain. It enables secure, transparent, and efficient management of data sharing consents between individuals and institutions.
+CipherDocs is a decentralized consent management platform built on Algorand blockchain. It enables secure, transparent, and efficient management of data sharing consents between individuals and institutions.
 
 ## 🌟 Core Features
 
