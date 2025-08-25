@@ -308,14 +308,7 @@ PUT /api/user/settings
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open Pull Request
 
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-- Algorand Foundation
-- Pera Wallet Team
-- React Community
-- TailwindCSS Team
 
 
 
