@@ -52,7 +52,7 @@ const UseCases = () => {
         >
           <h2 className="section-title">Use Cases</h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Discover how ConsentChain revolutionizes data sharing across different sectors.
+            Discover how CipherDoc revolutionizes data sharing across different sectors.
           </p>
         </motion.div>
 

@@ -435,7 +435,7 @@ const SenderPage: React.FC = () => {
                 onChange={(e) => setPermissions({ ...permissions, timeLimit: parseInt(e.target.value) })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               >
-                <option value={15}>15 minutes</option>
+                <option value={5}>5 minutes</option>
                 <option value={30}>30 minutes</option>
                 <option value={60}>1 hour</option>
                 <option value={120}>2 hours</option>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   const fadeInUp = {
@@ -8,21 +9,36 @@ function Footer() {
     transition: { duration: 0.5 }
   };
 
-  const links = [
+  const navigationLinks = [
     {
-      name: 'About',
+      name: 'Home',
+      href: '/',
+    },
+    {
+      name: 'Dashboard',
+      href: '/dashboard',
+    },
+    {
+      name: 'Documents',
+      href: '/documents',
+    },
+    {
+      name: 'Consents',
+      href: '/consents',
+    },
+  ];
+
+  const legalLinks = [
+    {
+      name: 'Privacy Policy',
       href: '#',
     },
     {
-      name: 'Features',
+      name: 'Terms of Service',
       href: '#',
     },
     {
-      name: 'How It Works',
-      href: '#',
-    },
-    {
-      name: 'Contact',
+      name: 'Security',
       href: '#',
     },
   ];
@@ -58,13 +74,13 @@ function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-premium-900 via-premium-800 to-premium-900"></div>
+    <footer className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-t border-gray-700">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent"></div>
       
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary-500/5 rounded-full filter blur-3xl"
+          className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-500/5 rounded-full filter blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -76,7 +92,7 @@ function Footer() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-secondary-500/5 rounded-full filter blur-3xl"
+          className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full filter blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.3, 0.5, 0.3],
@@ -118,21 +134,24 @@ function Footer() {
                 repeatType: 'reverse',
               }}
             >
-              <span className="text-2xl font-display font-bold text-gradient">
-                ConsentChain
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 w-10 h-10 rounded-lg flex items-center justify-center mr-3">
+                <span className="font-bold text-white">C</span>
+              </div>
+              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                CipherDoc
               </span>
             </motion.div>
             <motion.p 
-              className="text-gray-200 text-lg leading-relaxed"
+              className="text-gray-300 text-lg leading-relaxed"
             >
               Making data sharing secure and transparent with blockchain technology.
             </motion.p>
-            <div className="flex space-x-6">
+            <div className="flex space-x-4">
               {socialLinks.map((item) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-300 hover:text-white transition-colors duration-300 p-3 rounded-xl bg-white/5 backdrop-blur-sm hover:bg-white/10 border border-white/10"
+                  className="text-gray-400 hover:text-white transition-colors duration-300 p-3 rounded-xl bg-gray-800/50 backdrop-blur-sm hover:bg-gray-700/50 border border-gray-700"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -150,55 +169,56 @@ function Footer() {
           >
             <div>
               <motion.h3 
-                className="text-lg font-semibold text-gradient tracking-wider uppercase mb-6"
+                className="text-lg font-semibold text-white tracking-wider uppercase mb-6"
               >
                 Navigation
               </motion.h3>
               <ul className="space-y-4">
-                {links.map((item) => (
+                {navigationLinks.map((item) => (
                   <motion.li
                     key={item.name}
                     whileHover={{ x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <a href={item.href} className="text-gray-200 hover:text-white transition-colors duration-300 text-lg">
+                    <Link to={item.href} className="text-gray-300 hover:text-white transition-colors duration-300 text-lg">
                       {item.name}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
             </div>
             <div>
               <motion.h3 
-                className="text-lg font-semibold text-gradient tracking-wider uppercase mb-6"
+                className="text-lg font-semibold text-white tracking-wider uppercase mb-6"
               >
                 Legal
               </motion.h3>
               <ul className="space-y-4">
-                <motion.li whileHover={{ x: 5 }} whileTap={{ scale: 0.95 }}>
-                  <a href="#" className="text-gray-200 hover:text-white transition-colors duration-300 text-lg">
-                    Privacy Policy
-                  </a>
-                </motion.li>
-                <motion.li whileHover={{ x: 5 }} whileTap={{ scale: 0.95 }}>
-                  <a href="#" className="text-gray-200 hover:text-white transition-colors duration-300 text-lg">
-                    Terms of Service
-                  </a>
-                </motion.li>
+                {legalLinks.map((item) => (
+                  <motion.li
+                    key={item.name}
+                    whileHover={{ x: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <a href={item.href} className="text-gray-300 hover:text-white transition-colors duration-300 text-lg">
+                      {item.name}
+                    </a>
+                  </motion.li>
+                ))}
               </ul>
             </div>
           </motion.div>
         </motion.div>
         <motion.div 
-          className="mt-16 border-t border-white/20 pt-8"
+          className="mt-16 border-t border-gray-700 pt-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
           <motion.p 
-            className="text-center text-gray-300 text-lg"
+            className="text-center text-gray-400 text-lg"
           >
-            © 2024 ConsentChain. All rights reserved.
+            © 2024 CipherDoc. All rights reserved. Built with ❤️ for a more secure digital future.
           </motion.p>
         </motion.div>
       </div>
@@ -206,4 +226,4 @@ function Footer() {
   );
 }
 
-export default Footer; 
+export default Footer;

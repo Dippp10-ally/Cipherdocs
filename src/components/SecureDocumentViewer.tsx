@@ -1025,7 +1025,7 @@ const SecureDocumentViewer: React.FC<SecureDocumentViewerProps> = ({
                             <!DOCTYPE html>
                             <html>
                             <head>
-                              <title>ConsentChain Secure Print - ${documentName}</title>
+                              <title>CipherDoc Secure Print - ${documentName}</title>
                               <meta charset="utf-8">
                               <meta name="viewport" content="width=device-width, initial-scale=1">
                               <style>
@@ -1292,7 +1292,7 @@ const SecureDocumentViewer: React.FC<SecureDocumentViewerProps> = ({
                                 // Monitor window focus (potential screenshot attempts)
                                 window.addEventListener('blur', () => logSuspicious('window_blur'));
                                 
-                                console.log('ConsentChain secure print session initialized for: ${documentName}');
+                                console.log('CipherDoc secure print session initialized for: ${documentName}');
                               </script>
                             </body>
                             </html>
@@ -1641,7 +1641,7 @@ const SecureDocumentViewer: React.FC<SecureDocumentViewerProps> = ({
                       <!DOCTYPE html>
                       <html>
                       <head>
-                        <title>ConsentChain Print Station - ${documentName}</title>
+                        <title>CipherDoc Print Station - ${documentName}</title>
                         <meta charset="utf-8">
                         <style>
                           @media screen {
@@ -1740,7 +1740,7 @@ const SecureDocumentViewer: React.FC<SecureDocumentViewerProps> = ({
                       </head>
                       <body>
                         <div class="station-header">
-                          <h1>ConsentChain Print Station</h1>
+                          <h1>CipherDoc Print Station</h1>
                           <p><strong>Document:</strong> ${documentName}</p>
                           <p><strong>Location:</strong> Pune, Maharashtra, India</p>
                           <p><strong>Session:</strong> ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>

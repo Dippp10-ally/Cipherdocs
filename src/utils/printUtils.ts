@@ -1,5 +1,5 @@
 /**
- * Print utilities for handling multiple document printing in ConsentChain
+ * Print utilities for handling multiple document printing in CipherDoc
  */
 
 export interface PrintableDocument {
@@ -119,7 +119,7 @@ class PrintManager {
           <!DOCTYPE html>
           <html>
           <head>
-            <title>ConsentChain Secure Print - ${printableDoc.name}</title>
+            <title>CipherDoc Secure Print - ${printableDoc.name}</title>
             <style>
               @media screen {
                 body { 
@@ -167,7 +167,7 @@ class PrintManager {
           </head>
           <body>
             <div class="print-header no-print">
-              <h1>🖨️ ConsentChain Secure Print</h1>
+              <h1>🖨️ CipherDoc Secure Print</h1>
               <p>Document: <strong>${printableDoc.name}</strong></p>
               <p>Authorized Print Location: Pune, Maharashtra</p>
               <p>Size: ${printableDoc.size ? (printableDoc.size / 1024).toFixed(1) + ' KB' : 'Unknown'}</p>
@@ -364,7 +364,7 @@ export const enhancedWindowPrint = (
         <!DOCTYPE html>
         <html>
         <head>
-          <title>ConsentChain Enhanced Secure Print - ${documentName}</title>
+          <title>CipherDoc Enhanced Secure Print - ${documentName}</title>
           <style>
             @media screen {
               body { 
@@ -432,7 +432,7 @@ export const enhancedWindowPrint = (
         <body>
           <div class="print-header no-print">
             <div class="security-badge">🔒 SECURE DOCUMENT</div>
-            <h1>🖨️ ConsentChain Enhanced Print</h1>
+            <h1>🖨️ CipherDoc Enhanced Print</h1>
             <p><strong>Document:</strong> ${documentName}</p>
             <p><strong>Print Location:</strong> Pune, Maharashtra, India</p>
             <p><strong>Print Time:</strong> ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
@@ -518,7 +518,7 @@ export const enhancedWindowPrint = (
       
     } else {
       // Fallback to standard window print with security warning
-      const confirmPrint = window.confirm(`🔒 ConsentChain Secure Print\n\nDocument: ${documentName}\nLocation: Pune, Maharashtra\n\n⚠️ This will use your browser's print dialog.\nEnsure no downloads are attempted.\n\nContinue with secure print?`);
+      const confirmPrint = window.confirm(`🔒 CipherDoc Secure Print\n\nDocument: ${documentName}\nLocation: Pune, Maharashtra\n\n⚠️ This will use your browser's print dialog.\nEnsure no downloads are attempted.\n\nContinue with secure print?`);
       
       if (confirmPrint) {
         window.print();

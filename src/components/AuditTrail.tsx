@@ -89,7 +89,7 @@ const AuditTrail: React.FC<AuditTrailProps> = ({ onClose }) => {
     const url = window.URL.createObjectURL(blob);
     const a = window.document.createElement('a');
     a.href = url;
-    a.download = `ConsentChain_AuditTrail_${new Date().toISOString().split('T')[0]}.csv`;
+    a.download = `CipherDoc_AuditTrail_${new Date().toISOString().split('T')[0]}.csv`;
     window.document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);

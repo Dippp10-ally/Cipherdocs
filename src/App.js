@@ -4,7 +4,7 @@ import { WalletProvider } from './context/WalletContext';
 import Vision from './components/Vision';
 import Documents from './components/Documents';
 import Hero from './components/Hero';
-import WhatIsConsentChain from './components/WhatIsConsentChain';
+import WhatIsCipherDoc from './components/WhatIsCipherDoc';
 import HowItWorks from './components/HowItWorks';
 import UseCases from './components/UseCases';
 import Comparison from './components/Comparison';
@@ -29,7 +29,7 @@ function App() {
             <Route path="/" element={
               <>
                 <Hero />
-                <WhatIsConsentChain />
+                <WhatIsCipherDoc />
                 <HowItWorks />
                 <UseCases />
                 <Comparison />

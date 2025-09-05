@@ -44,7 +44,7 @@ function Comparison() {
     {
       name: 'Decentralized Storage',
       traditional: false,
-      consentchain: true,
+      cipherdoc: true,
       description: 'Data stored on Algorand blockchain',
       color: 'from-blue-500 to-indigo-600',
       icon: (
@@ -58,7 +58,7 @@ function Comparison() {
     {
       name: 'User Control',
       traditional: false,
-      consentchain: true,
+      cipherdoc: true,
       description: 'Full control over data access',
       color: 'from-purple-500 to-pink-600',
       icon: (
@@ -71,7 +71,7 @@ function Comparison() {
     {
       name: 'Transparency',
       traditional: false,
-      consentchain: true,
+      cipherdoc: true,
       description: 'Clear audit trail of all transactions',
       color: 'from-green-500 to-emerald-600',
       icon: (
@@ -84,7 +84,7 @@ function Comparison() {
     {
       name: 'Immutability',
       traditional: false,
-      consentchain: true,
+      cipherdoc: true,
       description: 'Unchangeable consent records',
       color: 'from-yellow-500 to-amber-600',
       icon: (
@@ -97,7 +97,7 @@ function Comparison() {
     {
       name: 'QR Code Sharing',
       traditional: false,
-      consentchain: true,
+      cipherdoc: true,
       description: 'Instant data sharing via QR codes',
       color: 'from-red-500 to-rose-600',
       icon: (
@@ -113,7 +113,7 @@ function Comparison() {
     {
       name: 'WhatsApp/Telegram Integration',
       traditional: false,
-      consentchain: true,
+      cipherdoc: true,
       description: 'Share directly via messaging apps',
       color: 'from-cyan-500 to-blue-600',
       icon: (
@@ -164,7 +164,7 @@ function Comparison() {
               repeatType: 'reverse',
             }}
           >
-            Why Choose ConsentChain?
+            Why Choose CipherDoc?
           </motion.p>
           <motion.p 
             className="mt-4 max-w-2xl text-xl text-gray-300 lg:mx-auto"
@@ -272,7 +272,7 @@ function Comparison() {
                           }}
                         >
                           <CheckIcon className="h-5 w-5 text-green-500 mr-2" />
-                          <span className="text-sm text-gray-400">ConsentChain</span>
+                          <span className="text-sm text-gray-400">CipherDoc</span>
                         </motion.div>
                       </div>
                     </div>

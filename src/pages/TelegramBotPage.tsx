@@ -26,7 +26,7 @@ const TelegramBotPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          ConsentChain Telegram Bot
+          CipherDoc Telegram Bot
         </motion.h1>
         <motion.p
           className="text-xl text-gray-200 mb-8 leading-relaxed"
@@ -34,14 +34,14 @@ const TelegramBotPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9 }}
         >
-          Interact with ConsentChain directly from Telegram! Use our <span className="font-semibold text-gradient">@consent_bot</span> to manage your data consents, receive notifications, and more—all from your favorite messaging app.
+          Interact with CipherDoc directly from Telegram! Use our <span className="font-semibold text-gradient">@consent_bot</span> to manage your data consents, receive notifications, and more—all from your favorite messaging app.
         </motion.p>
         <div className="mb-8">
           <h2 className="text-2xl font-semibold text-gradient mb-4">How to Use</h2>
           <ol className="list-decimal list-inside text-left text-lg text-gray-200 space-y-2 mx-auto max-w-xl">
             <li>Click the <span className="font-semibold text-gradient">Open Consent Bot</span> button below.</li>
             <li>Start a chat with <span className="font-semibold text-gradient">@consent_bot</span> on Telegram.</li>
-            <li>Follow the instructions sent by the bot to link your ConsentChain account.</li>
+            <li>Follow the instructions sent by the bot to link your CipherDoc account.</li>
             <li>Manage your data consents, receive notifications, and approve or reject requests—all from Telegram!</li>
           </ol>
         </div>
@@ -60,8 +60,8 @@ const TelegramBotPage: React.FC = () => {
           <h2 className="text-xl font-semibold text-gradient mb-4">What Users Say</h2>
           <div className="flex flex-col gap-4 items-center">
             <blockquote className="bg-white/10 border-l-4 border-primary-400 p-4 rounded-xl text-gray-100 max-w-lg italic shadow-glow">
-              "The ConsentChain Telegram bot made it so easy to approve requests on the go!"
-              <span className="block mt-2 text-primary-300 font-semibold">— A ConsentChain User</span>
+              "The CipherDoc Telegram bot made it so easy to approve requests on the go!"
+              <span className="block mt-2 text-primary-300 font-semibold">— A CipherDoc User</span>
             </blockquote>
             <blockquote className="bg-white/10 border-l-4 border-secondary-400 p-4 rounded-xl text-gray-100 max-w-lg italic shadow-glow">
               "I love getting instant notifications in Telegram. Super convenient!"

@@ -4,7 +4,7 @@
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
-        ConsentChain
+        CipherDoc
       </h2>
       <p className="text-gray-400 max-w-2xl mx-auto">
         Secure and transparent consent management for document sharing and access.

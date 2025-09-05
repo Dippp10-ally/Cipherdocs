@@ -137,7 +137,7 @@ const WhoCanUse = () => {
               repeatType: 'reverse',
             }}
           >
-            Who Can Use ConsentChain?
+            Who Can Use CipherDoc?
           </motion.h2>
           <motion.p
             variants={itemVariants}

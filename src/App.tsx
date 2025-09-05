@@ -16,6 +16,9 @@ import NotFoundPage from './pages/NotFoundPage';
 import AboutUsPage from './pages/AboutUsPage';
 import UnifiedSharingPage from './pages/UnifiedSharingPage'; // Unified document sharing interface
 import ReceiverPage from './pages/ReceiverPage'; // Modern receiver interface
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
+import SecurityPage from './pages/SecurityPage';
 
 // Components
 import Layout from './components/Layout';
@@ -60,6 +63,9 @@ const App: React.FC = () => {
               <Route path="/documents" element={<Documents />} />
               <Route path="/telegram-bot" element={<TelegramBotPage />} />
               <Route path="/about" element={<AboutUsPage />} />
+              <Route path="/privacy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms" element={<TermsOfServicePage />} />
+              <Route path="/security" element={<SecurityPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Layout>

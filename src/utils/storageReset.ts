@@ -4,7 +4,7 @@ export const resetAuditStorage = () => {
     // Clear audit trail
     localStorage.removeItem('consent_audit_trail');
     
-    // Clear other ConsentChain related storage
+    // Clear other CipherDoc related storage
     const keysToRemove = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
@@ -31,6 +31,6 @@ export const resetAuditStorage = () => {
 
 // Expose reset function globally for emergency use
 if (typeof window !== 'undefined') {
-  (window as any).resetConsentStorage = resetAuditStorage;
-  console.log('🛠️ Emergency storage reset available: call resetConsentStorage() in console');
+  (window as any).resetCipherDocStorage = resetAuditStorage;
+  console.log('🛠️ Emergency storage reset available: call resetCipherDocStorage() in console');
 }

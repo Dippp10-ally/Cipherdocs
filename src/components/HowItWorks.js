@@ -42,7 +42,7 @@ function HowItWorks() {
   const steps = [
     {
       name: 'Connect Wallet',
-      description: 'Start by connecting your Pera Wallet to access the ConsentChain platform.',
+      description: 'Start by connecting your Pera Wallet to access the CipherDoc platform.',
       color: 'from-blue-500 to-indigo-600',
       icon: (
         <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +157,7 @@ function HowItWorks() {
               repeatType: 'reverse',
             }}
           >
-            Follow these easy steps to start sharing your data securely with ConsentChain.
+            Follow these easy steps to start sharing your data securely with CipherDoc.
           </motion.p>
         </motion.div>
 
