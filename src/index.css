@@ -203,3 +203,172 @@ code {
     @apply bg-gray-900 text-white;
   }
 }
+
+/* ==========================================
+   Responsive Enhancements
+   Append at End of index.css
+   ========================================== */
+
+/* Prevent horizontal scrolling */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Better image responsiveness */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Improve text wrapping */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Better touch targets on mobile */
+button,
+a,
+input,
+select,
+textarea {
+  min-height: 44px;
+}
+
+/* Tablet Devices */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2.25rem;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .card-gradient,
+  .glass-panel {
+    padding: 1.25rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent,
+  .btn-outline {
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.875rem;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .card-gradient,
+  .glass-panel {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Reduce hover transforms on touch devices */
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-accent:hover,
+  .btn-outline:hover,
+  .card-hover:hover {
+    transform: none;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .card-gradient,
+  .glass-panel {
+    padding: 0.875rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent,
+  .btn-outline {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1536px) {
+  .section-title {
+    font-size: 3.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.375rem;
+  }
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent,
+  .btn-outline,
+  .card-hover {
+    transform: none !important;
+  }
+}
+
+/* Firefox Scrollbar Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 #1f2937;
+}
+
